@@ -1,0 +1,65 @@
+*{
+	margin: 0;
+	padding: 0;
+	font-family: Microsoft YaHei;
+
+}
+body{
+font-size: 16px;
+color: #666;
+
+}
+img{
+	border: none;
+}
+a{
+	text-decoration: none;
+	color: #666;
+}
+
+
+.main{
+	width: 100%;
+	height: auto;
+	overflow: hidden;
+	background-color: #F6F6F6;
+
+}
+		  
+.slide_x{
+	width:1200px;
+	margin:0 auto;
+	height:480px;
+	position: relative;
+}
+.slide_x .box{position:relative;width:1200px;height:480px;overflow: hidden;}
+.slide_x .list{width:8400px;height: 480px;list-style: none;position: absolute;}
+.slide_x .list li{float:left;}
+.slide_x .list li a {display:block;height:auto;overflow:hidden;line-height: 0;}
+.slide_x .list li img{width: 1200px;}
+
+.switcher{ width:360px; height:20px; z-index:2; position:absolute;bottom:15px;margin-left: 420px;}
+.switcher span{background:#fff; border:1px solid #ff6600;border-radius:10px;float:left; height:6px; width:60px; display:inline-block;margin:5px;cursor:pointer;}
+
+.slide_x .ctl{
+	width: 42px;
+	height: 42px;
+	position: absolute;
+	cursor: pointer;
+	top: 219px;
+	z-index: 5;
+}
+.slide_x .ctl img{
+	width: 42px;
+	height: 42px;
+}
+.slide_x .lft{
+	left: 10px;
+
+}
+
+.slide_x .rt{
+	
+	right: 10px;
+}
+

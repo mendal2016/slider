@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+	<meta charset="UTF-8">
+	<title>slider</title>
+	<link rel="stylesheet" href="css/index.css">
+	
+
+</head>
+<body>
+
+	<div class="main">
+		<div id="slide_x" class="slide_x">
+		<div class="box">
+			<ul class="list clr">
+			    <li><a href=""><img src="images/banner/15.jpg" ></a></li>
+				<li><a href=""><img src="images/banner/11.jpg" ></a></li>
+				<li><a href=""><img src="images/banner/12.jpg" ></a></li>
+				<li><a href=""><img src="images/banner/13.jpg" ></a></li>
+				<li><a href=""><img src="images/banner/14.jpg" ></a></li>
+				<li><a href=""><img src="images/banner/15.jpg" ></a></li>
+				<li><a href=""><img src="images/banner/11.jpg" ></a></li>
+				
+			</ul>
+		</div>
+		<div class="switcher">
+					<span ></span>
+					<span ></span>
+					<span ></span>
+					<span ></span>
+					<span ></span>
+					
+            
+		</div>
+		<div class="lft ctl">
+			<img src="images/icons/lft.png" alt="">
+		</div>
+		<div class="rt ctl">
+			<img src="images/icons/rt.png" alt="">
+		</div>
+
+	</div>
+
+	
+
+	</div>
+
+
+
+
+	
+
+<script type="text/javascript" src="js/jquery-1.9.1.js"></script>
+<script type="text/javascript" src="js/nav.js"></script>
+<script type="text/javascript">
+$(function(){
+	var n=2;
+	var sw;
+	var max=$("#slide_x .box li").length-1;
+
+	var browserWidth=1200;	
+
+	$("#slide_x .box .list").css('left', '-1200px');
+	$(".switcher span").eq(0).css("background","#ff6600"); 
+	$(".switcher").css('display', 'none');
+	$(".slide_x .ctl").css('display', 'none');
+
+	
+	var auto= setInterval(at, 5000);
+	function at(){
+		var k;
+		n++;
+		if (n==8) {
+			$("#slide_x .box .list").css('left', '-1200px');
+			n=3;
+
+		}
+		sw=(n-1)*(-1200);
+		$("#slide_x .box .list").animate({'left': sw+'px'});
+
+		//alert(n);
+		if (n==7) {
+			k=0;
+		} else {
+			k=n-2;
+		}
+		$(".switcher span").eq(k).css("background","#ff6600"); 
+    	for(var i=0;i<5;i++){
+				if(i!==k){
+					$(".switcher span").eq(i).css("background","#fff");
+
+					}
+
+				};
+     
+	} ;
+
+	$(".slide_x").mouseenter(function(){
+		$(".switcher").fadeIn("slow");
+		$(".slide_x .ctl").fadeIn("slow");
+		var auto_stop=clearInterval(auto);
+
+
+	})
+
+	$(".slide_x").mouseleave(function(){
+		$(".switcher").fadeOut("slow");
+		$(".slide_x .ctl").fadeOut("slow");
+		auto= setInterval(at, 5000);
+
+		
+	})
+
+	$(".switcher span").mouseenter(function(){
+
+    	
+    	var switcher_index=$(this).index();
+    	$(this).css("background","#ff6600"); 
+    	for(var i=0;i<5;i++){
+				if(i!=switcher_index){
+					$(".switcher span").eq(i).css("background","#fff");
+
+					}
+
+				}
+
+
+		
+		n= switcher_index+2;
+		sw=(n-1)*(-1200);
+
+		$("#slide_x .box .list").animate({'left': sw+'px'});
+		//alert(n);
+		
+
+    	
+    })
+
+    $(".slide_x .rt").click(function() {
+    	n++;
+		if (n==8) {
+			$("#slide_x .box .list").css('left', '-1200px');
+			n=3;
+
+		}
+		sw=(n-1)*(-1200);
+		$("#slide_x .box .list").animate({'left': sw+'px'});
+
+		//alert(n);
+        if (n==7) {
+			k=0;
+		} else {
+			k=n-2;
+		}
+		$(".switcher span").eq(k).css("background","#ff6600"); 
+    	for(var i=0;i<5;i++){
+				if(i!==k){
+					$(".switcher span").eq(i).css("background","#fff");
+
+					}
+
+		};
+
+    });
+
+      $(".slide_x .lft").click(function() {
+    	n--;
+		//alert(n);
+		if (n==0) {
+			$("#slide_x .box .list").css('left', '-6000px');
+			n=5;
+
+		}
+		sw=(n-1)*(-1200);
+		$("#slide_x .box .list").animate({'left': sw+'px'});
+
+		//alert(n);
+		if (n==1) {
+			k=4;
+		} else {
+			k=n-2;
+		}
+		$(".switcher span").eq(k).css("background","#ff6600"); 
+    	for(var i=0;i<5;i++){
+				if(i!==k){
+					$(".switcher span").eq(i).css("background","#fff");
+
+					}
+
+		};
+
+
+
+    });
+
+
+});
+	
+</script>
+
+
+</body>
+</html>
